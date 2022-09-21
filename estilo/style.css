@@ -1,0 +1,275 @@
+/*
+
+Para podermos organizar nossa paleta de cores, podemos criar o :root da forma que está demonstrado abaixo (temos que colocar dois traços e o nome que desejamos para os códigos de cores).
+
+Posteriormente, incluímos a resposta var (coloco o nome que determinei para a cor no root), sem a necessidade de ficar procurando as cores a todo momento.
+
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/*
+
+Para incluir uma fonte retirada de sites especializados (extensões otf ou ttf), podemos introduzir o comando abaixo @font-face.
+
+Primeiro nomeamos em font-family;
+
+Depois incluímos o caminho (no caminho ../fontes/idroid.otf tivemos que colocar os dois pontos iniciais, pois representa que tivemos que voltar uma pasta e entrar em outra) e seu formato (formato de extensão: opentype ou ttf);
+
+
+*/
+
+@font-face {
+
+    font-family:'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+
+
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrão: Arial, Verdana, Helvetica, sans-serif;
+
+    --fonte-destaque: 'Bebas Neue', cursive;
+
+    --fonte-android: 'Android', cursive;
+}
+
+* { /*Formatação para todo o conteúdo. Uma forma de retirar espaços que não queremos*/
+    margin: 0px;
+    padding: 0px;
+}
+
+/*-----------------------------------CORPO (BODY)---------------------------------------------*/
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrão);
+}
+
+/*Introduzindo o símbolo de link, retirado do site emojipedia*/
+a.externo::after {
+    content:'\00A0\1F517';
+}
+
+/*----------------------------------------------CABEÇALHO (HEADER)--------------------------------*/
+
+header { /*Formatação de header*/
+    /*Cor de fundo*/
+    background-color: var(--cor4);
+    /*tamanho mínimo sem alteração*/
+    min-height: 150px;
+    /*Formatação do sentido - centralizado*/
+    text-align:center;
+    /*Formatação degradê da cor*/
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    
+}
+
+header > h1 { /*Formatação do H1 de header*/
+    color: white;
+    font-family: var(--fonte-destaque);
+     /*tamanho das fontes*/
+    font-size: 3em;
+    /*Para criar um espaço em cima do parágrafo*/
+    padding-top: 40px;
+     /*Para criar uma sombra no texto do parágrafo*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.747);
+    /*Grossura da fonte*/
+    font-weight: normal;
+   
+    
+}
+
+header > p { /*Formatação dos parágrafos contidos em header*/
+    /*Cor*/
+    color:white;
+    /*tamanho das fontes*/
+    font-size: 1em;
+    /*sentido do texto - centralizado*/
+    text-align: center;
+    /*tamanho máximo de 500px para que o texto possa se adequar a diversos tamanhos de dispositivos*/
+    max-width: 500px;
+    /*Margin auto para que os textos sejam readequados com a mudança de tamanho de tela automaticamente*/
+    margin: auto;
+    /*Para criar um espaço em volta do parágrafo*/
+    padding: 0px 10px 0px 10px;
+    /*Para criar uma sombra no texto do parágrafo*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.747);
+}
+
+/*--------------------------------------LINKS (NAV)-----------------------------------------------------*/
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.479);
+    
+}
+nav > a {
+    color:white;
+    padding:10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 1s;
+}
+nav > a:hover {
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+/*----------------------------------CONTEÚDO (MAIN)--------------------------------------------*/
+
+main {
+    background-color: white;
+    min-width: 300px;
+    max-width: 1000px;
+    margin:auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    
+    
+}
+main h2 {
+    color: var(--cor4);
+    font-family: var(--fonte-android);
+    padding:5px;
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    font-weight: normal;
+}
+main img {
+    width: 100%;
+}
+
+
+main img.pequena {
+    max-width: 350px;
+    display:block;
+    margin: auto;
+}
+
+main p { /*Formatação dos parágrafos contidos no main*/
+    /*Alteração de margens superior e inferior dos parágrafos*/
+    margin: 15px 0px 15px 0px;
+    /*Formatação Justificada do Texto*/
+    text-align: justify;
+    /*Recuo no início do parágrafo*/
+    text-indent: 30px;
+    /*Formatação do "entre linhas" dos textos (como no word)*/
+    line-height: 1.5em;
+    /*Formatação de tamanho de fonte*/
+    font-size: 1em;
+}
+
+main strong {
+    color:var(--cor4);
+    font-weight: bold;
+    padding: 2px 6px;
+    font-family: var(--fonte-android);
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color:var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color:var(--cor3);
+}
+
+picture {
+    min-width: 250px;
+    max-width: 810px;
+    margin:auto;
+}
+
+/*------------------------ARTICLE > VÍDEO-----------------------*/
+
+/**/
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px;
+    padding: 20px;
+    padding-bottom: 56.5%;
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+/*-------------------------------ARTICLE > INTERMEDIÁRIO (ASIDE)----------------------------------*/
+
+aside {
+    /*Cor de Fundo*/
+    background-color: var(--cor1);
+    /*Espaçamento*/
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+aside > ul {
+    /*Retirei um emoticon do site emojipedia com o código 2714 (excluí o U+) - - Coloquei o código 00A0 que significa espaço (coloquei duas vezes para espaçar mais). O list-style-type não é compatível com qualquer navegador.*/
+    list-style-type: '\2714\00A0\00A0';
+    /*Posição da Lista*/
+    list-style-position: inside;
+    /*Divisão de Colunas*/
+    columns: 2;
+
+}
+
+aside > h3 {
+    background-color:var(--cor4);
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+    margin: -10px -10px 0px -10px;
+    box-shadow: 3px 3px 8px rgba(34, 34, 34, 0.767);
+}
+/*-----------------------------------------RODAPÉ (FOOTER)-----------------------------------------------------------*/
+
+footer {
+    background-color: var(--cor5);
+    color:white;
+    padding: 5px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+footer a {
+    text-decoration: none;
+    color:var(--cor3);
+}
+
+footer a:hover {
+    text-decoration:underline;
+    color:blue;
+}
